@@ -1,0 +1,76 @@
+COMMANDS FOR RUNNING PUBLISHED EXPERIMENTS
+
+
+python3 partition_and_plot_usgs_data_by_lat_an_lon_v02162026.py \
+ --output-dir ~/results/partition_and_plot_usgs_data_by_lat_an_lon_v02162026 \
+ --title "USGS Event Latitude/Longitude Scatter" \
+ --alpha 0.3 \
+ --size 12.0 \
+ --color "tab:blue"
+
+
+python3 usgs_LowPassShortWindowStationSubset_LatLonRegionSplit_seismic_data.py \
+ --cached_data_save_path ~/datasets/usgs_LP50hzSW4096StSub4Kg4_seismic_data_LatLonRegSplit_v02162026 \
+ --orig_ts_data_path ~/datasets/large_seismic_neic_dset_v10222025 \
+ --orig_TxtImg_data_path ~/datasets/small_seismic_TxtTs_dset_v09232025 \
+ --num_cv_folds 4 \
+ --max_num_randomly_sampled_kg_relations 4 \
+ --max_temporal_window_size 4096 \
+ --max_num_stations_per_sample 4 \
+ --max_events_per_region 411 \
+ --num_train_samples 4932 \
+ --num_test_samples 1233
+
+python3 usgs_LowPassShortWindowStationSubset_LatLonRegionSplit_seismic_data.py \
+ --cached_data_save_path ~/datasets/usgs_LP50hzSW4096StSub4Kg10_seismic_data_LatLonRegSplit_v02162026 \
+ --orig_ts_data_path ~/datasets/large_seismic_neic_dset_v10222025 \
+ --orig_TxtImg_data_path ~/datasets/small_seismic_TxtTs_dset_v09232025 \
+ --num_cv_folds 4 \
+ --max_num_randomly_sampled_kg_relations 10 \
+ --max_temporal_window_size 4096 \
+ --max_num_stations_per_sample 4 \
+ --max_events_per_region 411 \
+ --num_train_samples 4932 \
+ --num_test_samples 1233
+
+python3 usgs_LowPassShortWindowStationSubset_LatLonRegionSplit_seismic_data.py \
+ --cached_data_save_path ~/datasets/usgs_LP50hzSW4096StSub16Kg4_seismic_data_LatLonRegSplit_v02162026 \
+ --orig_ts_data_path ~/datasets/large_seismic_neic_dset_v10222025 \
+ --orig_TxtImg_data_path ~/datasets/small_seismic_TxtTs_dset_v09232025 \
+ --num_cv_folds 4 \
+ --max_num_randomly_sampled_kg_relations 4 \
+ --max_temporal_window_size 4096 \
+ --max_num_stations_per_sample 16 \
+ --max_events_per_region 411 \
+ --num_train_samples 4932 \
+ --num_test_samples 1233
+
+python3 usgs_LowPassShortWindowStationSubset_LatLonRegionSplit_seismic_data.py \
+ --cached_data_save_path ~/datasets/usgs_LP50hzSW4096StSub16Kg10_seismic_data_LatLonRegSplit_v02162026 \
+ --orig_ts_data_path ~/datasets/large_seismic_neic_dset_v10222025 \
+ --orig_TxtImg_data_path ~/datasets/small_seismic_TxtTs_dset_v09232025 \
+ --num_cv_folds 4 \
+ --max_num_randomly_sampled_kg_relations 10 \
+ --max_temporal_window_size 4096 \
+ --max_num_stations_per_sample 16 \
+ --max_events_per_region 411 \
+ --num_train_samples 4932 \
+ --num_test_samples 1233
+
+
+python3 check_event_kg_overlaps.py \
+ --datasets-root ~/datasets \
+ --output-dir ~/results/check_event_kg_overlaps_v02172026 \
+ --heatmap-metric pct \
+ --shared-triples-report
+
+python3 check_val_train_query_overlaps.py \
+ --datasets-root ~/datasets \
+ --output-dir ~/results/check_val_train_query_overlaps_v02172026 \
+ --pattern usgs_LP50hzSW4096*_seismic_data_LatLonRegSplit_v02162026
+
+python3 print_dataset_prompts.py \
+ --data-dir ~/datasets/usgs_LP50hzSW4096StSub4Kg4_seismic_data_LatLonRegSplit_v02162026/all_sensor_recorded_events/fold_0
+
+python3 print_dataset_prompts.py \
+ --data-dir ~/datasets/usgs_LP50hzSW4096StSub16Kg10_seismic_data_LatLonRegSplit_v02162026/all_sensor_recorded_events/fold_0

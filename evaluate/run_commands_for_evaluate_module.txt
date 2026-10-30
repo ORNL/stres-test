@@ -1,0 +1,52 @@
+COMMANDS FOR RUNNING PUBLISHED EXPERIMENTS
+
+
+python3 compOuts_of_usgs_finetuned_models_v02232026.py \
+ --eval_data_root_dir ~/datasets \
+ --model OpenTSLMFlamingo \
+ --openTSLM_base_model_str OpenTSLM/llama-3.2-1b- \
+ --save_root_dir ~/results/compOuts_of_usgs_finetuned_models_v02232026_TSLMLlamaV32P1B \
+ --seismic_finetune_base_dir ~/results/train_OpenTSLM_usgs50hzT4096_TSLMLlamaV32P1B_FOO_DATABatchSizeFOO_LatLonRegSplit_vFOO \
+ --max_patches 1024 \
+ --llm_id meta-llama/Llama-3.2-1B \
+ --log_file_path "None" \
+ --max_folds 1 \
+ --hf_cache_dir /path/to/cached/huggingface/models
+
+python3 compOuts_of_usgs_finetuned_models_v02232026.py \
+ --eval_data_root_dir ~/datasets \
+ --model OpenTSLMFlamingo \
+ --openTSLM_base_model_str OpenTSLM/gemma-3-270m- \
+ --save_root_dir ~/results/compOuts_of_usgs_finetuned_models_v02232026_TSLMGemmaV3P270M \
+ --seismic_finetune_base_dir ~/results/train_OpenTSLM_usgs50hzT4096_TSLMGemmaV3P270M_FOO_DATABatchSizeFOO_LatLonRegSplit_vFOO \
+ --max_patches 1024 \
+ --llm_id google/gemma-3-270m \
+ --log_file_path "None" \
+ --max_folds 1 \
+ --hf_cache_dir /path/to/cached/huggingface/models
+
+
+python3 aggregate_compOutsOfUSGSFinetunedModelsV0223_FocusedOverviewPlots_v02282026.py \
+ --results-dir ~/results \
+ --csv-root-save-folder ~/results/aggregate_compOutsOfUSGSFinetunedModelsV0223_FocusedOverviewPlots_v02282026 \
+ --plot-subdir overview_plots \
+ --edge-group-configs-root-dir ~/usgs-multimodal-models/evaluate \
+ --glob compOuts_of_usgs_finetuned_models_v02232026_TSLM*/usgs_LP50hzSW4096StSub*Kg*_seismic_data_LatLonRegSplit_v02162026_batchSize*_v*/OpenTSLM_*_fold_*/generative_eval_results.pkl \
+ --decode-keep-special-tokens \
+ --plot-group-by base_model_name,pretraining_stage,num_stations,kg_size,batch_size \
+ --plot-bar-by-edge-group \
+ --edge-group-col edge_group
+
+python3 aggregate_compOutsOfUSGSFinetunedModelsV0223_FocusedOverviewPlots_v02282026.py \
+ --results-dir ~/results \
+ --csv-root-save-folder ~/results/aggregate_compOutsOfUSGSFinetunedModelsV0223_FocusedOverviewPlots_v02282026_ABLATED \
+ --plot-subdir overview_plots \
+ --edge-group-configs-root-dir ~/usgs-multimodal-models/evaluate \
+ --glob compOuts_of_usgs_finetuned_models_v02232026_TSLM*/usgs_LP50hzSW4096StSub*Kg*_seismic_data_LatLonRegSplit_v02162026_batchSize*_v*/OpenTSLM_*_fold_*/ts_ablated/generative_eval_results_ts_ablated.pkl \
+ --decode-keep-special-tokens \
+ --plot-group-by base_model_name,pretraining_stage,num_stations,kg_size,batch_size \
+ --plot-bar-by-edge-group \
+ --edge-group-col edge_group
+
+
+python3 compareExtensively_ablated_vs_non_ablated_aggregated_compOutsOfUSGSFinetunedModels0223FocOverPlots0228_v03022026.py

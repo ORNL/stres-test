@@ -1,0 +1,4 @@
+COMMANDS FOR RUNNING PUBLISHED EXPERIMENTS
+
+
+python3 compareExtensively_ablated_vs_non_ablated_aggregated_compOutsOfUSGSFinetunedModels0223FocOverPlots0228_v03022026_TEST.py

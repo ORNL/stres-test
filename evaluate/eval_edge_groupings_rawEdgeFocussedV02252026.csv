@@ -1,0 +1,34 @@
+query_relation_edge,edge_group
+"had a point of origin from the nearest major population that was approximately",majorPopulations
+"occured in an area with estimated population density (per square km) of",populationEstimates
+"exposed an estimated population to earthquake shaking of around",populationEstimates
+"exposed the population to shaking with a rated level of",shakingRatings
+"triggered a shaking related fatalities alert level of",fatalityAlerts
+"has structures characterized by the statement that",structures
+"triggered an economical loss alert level of",economicLossAlerts
+"occured nearest to major population of",majorPopulations
+"was the closest major population to",majorPopulations
+"occured in the region referred to as the",regional
+"struck the region referred to as the",regional
+"is contextualized by the statement:",generalContext
+"originated from GPS coordinates",gpsCoordinateEstimates
+"originated from a depth of",depthEstimates
+"had approximate magnitude of",magnitudeEstimates
+"experienced shaking level of ",eventRecallFromCityShaking
+"occured in the country named",countryNames
+"encompasses a city named",cityNames
+"caused shaking level of ",cityRecallFromEventShaking
+"converges at a rate of ",convergenceEstimates
+"is referred to as the",names
+"has the fault type of",faultTypes
+"has a population of",populationEstimates
+"has a magnitude of",magnitudeEstimates
+"has ISO value of",isoEstimates
+"is located in the",regional
+"has Event ID:",eventIDRecall
+"was located ",relativeLocations
+"is located ",relativeLocations
+"is oriented",orientation
+"is an",definitions
+"is a",definitions
+"moves ",movement
